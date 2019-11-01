@@ -1,0 +1,7 @@
+
+<%= raw @content %>
+
+<%= form_for @conn, Routes.page_path(@conn, :edit), [as: :foo], fn f -> %>
+  <%= text_input f, :for %>
+  <%= submit "Edit", name: "page", value: @conn.assigns.page %>
+<% end %>

@@ -1,0 +1,7 @@
+
+<%= # raw @content %>
+
+<%= form_for @conn, Routes.page_path(@conn, :save), [as: :foo], fn f -> %>
+  <%= textarea f, :for, value: @content %>
+  <%= submit "Save", name: "page", value: @conn.assigns.page %>
+<% end %>
