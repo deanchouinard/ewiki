@@ -2,6 +2,6 @@
 <%= # raw @content %>
 
 <%= form_for @conn, Routes.page_path(@conn, :save), [as: :foo], fn f -> %>
-  <%= textarea f, :for, value: @content %>
+  <%= textarea f, :content, value: @content, rows: 20, cols: 20 %>
   <%= submit "Save", name: "page", value: @conn.assigns.page %>
 <% end %>

@@ -6,9 +6,18 @@ defmodule EwikiWeb.PageController do
     render(conn, "index.html")
   end
 
-  def save(conn, %{"page" => page} = opts) do
+  def search(conn, opts) do
+
+    IO.inspect opts, label: "search opts"
+
+    render(conn, "index.html")
+  end
+
+  def save(conn, %{"page" => page, "foo" => %{"content" => content}} = opts) do
     IO.inspect opts, label: "save opts"
-  
+
+    write_page(page, content)
+
     redirect(conn, to: Routes.page_path(conn, :show, page))
 
       #render(conn, "index.html")
@@ -53,6 +62,13 @@ defmodule EwikiWeb.PageController do
     IO.inspect content, label: "content"
 
     render(conn, "status.html", content: content)
+  end
+
+  defp write_page(page, content) do
+    case File.write(page_path(page), content) do
+      :ok -> "ok"
+      {:error, reason} -> reason
+    end
   end
 
   defp read_page(page) do

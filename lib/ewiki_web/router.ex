@@ -23,6 +23,7 @@ defmodule EwikiWeb.Router do
 
     post "/edit", PageController, :edit
     post "/save", PageController, :save
+    post "/search", PageController, :search
 
 
   end
