@@ -1,4 +1,4 @@
-
+<%= link("Home", to: "/") %>
 <%= raw @content %>
 
 <%= form_for @conn, Routes.page_path(@conn, :edit), [as: :foo], fn f -> %>
@@ -7,6 +7,6 @@
 <% end %>
 
 <%= form_for @conn, Routes.page_path(@conn, :search), [as: :search], fn f -> %>
-  <%= text_input f, :for %>
-  <%= hidden_input f, :hi, value: @conn.assigns.page %>
+  <%= text_input f, :stext %>
+  <%= hidden_input f, :page, value: @conn.assigns.page %>
 <% end %>

@@ -3,14 +3,18 @@ defmodule EwikiWeb.PageController do
   @path "pages/"
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    redirect(conn, to: Routes.page_path(conn, :show, "home"))
+    #    render(conn, "index.html")
   end
 
-  def search(conn, opts) do
+  def search(conn, %{"search" => %{"stext" => stext}} = opts) do
 
     IO.inspect opts, label: "search opts"
+    
+    search_results = Ewiki.Search.search(@path, stext)
+    IO.inspect search_results, label: "searchresult"
 
-    render(conn, "index.html")
+    render(conn, "search_results.html", search_results: search_results, stext: stext)
   end
 
   def save(conn, %{"page" => page, "foo" => %{"content" => content}} = opts) do

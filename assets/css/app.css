@@ -4,3 +4,16 @@
 
 textarea {height: auto;}
 
+.table-condensed {
+  font-size: 1.5rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  padding: 0 1.5rem;
+}
+ 
+tr, td {
+    height: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+

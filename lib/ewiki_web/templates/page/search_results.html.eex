@@ -1,0 +1,27 @@
+
+<table class="table-condensed">
+  <thead>
+    <tr>
+      <th>Results</th>
+      <th>Filename</th>
+  </thead>
+  <tbody>
+
+
+<%= for result <- @search_results do %>
+  <% %Ewiki.SearchResult{fname: fname, line: line, text: text} = result  %>
+  <p><%= "#{fname} | #{line} | #{text}" %></p>
+        <tr>
+        <td>
+          <%= link("#{remove_angle_brackets(text)}", to: "/show/#{fname}?stext=#{URI.encode(@stext)}") %>
+          <%= # "<a href=/page/#{fname}?stext=#{URI.encode(stext)}>#{remove_angle_brackets(text)}</a>" %>
+        </td>
+        <td>
+          <%= "#{fname}:#{line}" %>
+        </br> </td>
+        </tr>
+<% end %>
+
+  </tbody>
+</table>
+

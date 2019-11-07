@@ -1,13 +1,14 @@
-defmodule Mview.Search do
+defmodule Ewiki.Search do
   @moduledoc """
   Provides text searches via grep
 
   ## Examples
 
     iex> Search.search("/docs", "test")
+    [ %Ewiki.SearchResult{} ]
 
   """
-  alias Mview.SearchResult
+  alias Ewiki.SearchResult
 
   @doc """
   Takes a path and search text and returns a list of SearchResults
@@ -24,7 +25,7 @@ defmodule Mview.Search do
   defp new_search_result( str ) do
     # IO.inspect str, label: "new search res: "
     [file, lnum, stext] = String.split(str, ~r{:([0-9]+):}, parts: 2, include_captures: true)
-    fname = file |> Path.split() |> List.last
+    fname = file |> Path.split() |> List.last |> String.replace(".md", "")
     %SearchResult{ fname: fname, line: String.replace(lnum, ":", ""), text: stext }
   end
 end
