@@ -16,4 +16,26 @@ tr, td {
     padding-top: 0;
     padding-bottom: 0;
 }
+label {
+  float: left
+}
+span {
+  display: block;
+  overflow: hidden;
+  padding: 0 4px 0 6px
+}
+input {
+  width: 100%
+}
+
+.button-small {
+  font-size: 1.0rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  padding: 0 1.5rem;
+}
+
+form {
+  margin-bottom: 0;
+}
 

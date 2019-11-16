@@ -3,10 +3,13 @@
 
 <%= form_for @conn, Routes.page_path(@conn, :edit), [as: :foo], fn f -> %>
   <%= text_input f, :for %>
-  <%= submit "Edit", name: "page", value: @conn.assigns.page %>
+  <%= submit "Edit", name: "page", class: "button-small", value: @conn.assigns.page %>
 <% end %>
 
 <%= form_for @conn, Routes.page_path(@conn, :search), [as: :search], fn f -> %>
-  <%= text_input f, :stext %>
+  <%= label(f, :text_input, "Search", class: "label-inline") %>
+  <span>
+  <%= text_input f, :stext, id: "search_text_input" %>
+  </span>
   <%= hidden_input f, :page, value: @conn.assigns.page %>
 <% end %>
