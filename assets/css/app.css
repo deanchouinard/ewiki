@@ -39,3 +39,10 @@ form {
   margin-bottom: 0;
 }
 
+hr {
+  border-top-width: 0.1rem;
+  border-top-color: rgb(209, 209, 209);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+

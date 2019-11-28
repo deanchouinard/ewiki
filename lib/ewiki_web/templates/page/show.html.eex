@@ -1,4 +1,5 @@
-<%= link("Home", to: "/") %>
+<%= render("header.html", conn: @conn) %>
+
 <%= raw @content %>
 
 <%= form_for @conn, Routes.page_path(@conn, :edit), [as: :foo], fn f -> %>
@@ -6,10 +7,4 @@
   <%= submit "Edit", name: "page", class: "button-small", value: @conn.assigns.page %>
 <% end %>
 
-<%= form_for @conn, Routes.page_path(@conn, :search), [as: :search], fn f -> %>
-  <%= label(f, :text_input, "Search", class: "label-inline") %>
-  <span>
-  <%= text_input f, :stext, id: "search_text_input" %>
-  </span>
-  <%= hidden_input f, :page, value: @conn.assigns.page %>
-<% end %>
+<%= render("search.html", conn: @conn) %>

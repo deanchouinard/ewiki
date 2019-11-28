@@ -1,0 +1,8 @@
+<hr>
+<%= form_for @conn, Routes.page_path(@conn, :search), [as: :search], fn f -> %>
+  <%= label(f, :text_input, "Search", class: "label-inline") %>
+  <span>
+  <%= text_input f, :stext, id: "search_text_input" %>
+  </span>
+  <%= # hidden_input f, :page, value: @conn.assigns.page %>
+<% end %>

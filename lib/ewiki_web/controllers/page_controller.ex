@@ -14,7 +14,13 @@ defmodule EwikiWeb.PageController do
     search_results = Ewiki.Search.search(@path, stext)
     IO.inspect search_results, label: "searchresult"
 
-    render(conn, "search_results.html", search_results: search_results, stext: stext)
+    cond do
+      search_results == ["No matches."] ->
+        render(conn, "no_matches.html")
+      true ->
+        render(conn, "search_results.html", search_results: search_results, stext: stext)
+    end
+
   end
 
   def save(conn, %{"page" => page, "foo" => %{"content" => content}} = opts) do

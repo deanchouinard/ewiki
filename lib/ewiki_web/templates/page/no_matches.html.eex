@@ -1,0 +1,6 @@
+<%= render("header.html", conn: @conn) %>
+
+No matches
+<br>
+
+<%= render("search.html", conn: @conn) %>
